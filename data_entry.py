@@ -15,7 +15,14 @@ def get_date(promp, allow_default=False):
         return get_date(promp, allow_default)
 
 def get_amount():
-    pass
+    try:
+        amount = float(input("Enter the amount: "))
+        if amount <= 0:
+            raise ValueError("Amount must be non-negative non-zero value.")
+        return amount
+    except ValueError as e:
+        print(str(e))
+        return get_amount()
 
 def get_category():
     pass
